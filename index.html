@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>LIVORIA</title>
 <meta name="apple-mobile-web-app-title" content="LIVORIA">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
@@ -16,16 +19,29 @@ body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--
 img{width:120px;height:120px}
 p{color:var(--muted);font-size:14px;margin:16px 0 0}
 a{color:var(--ink);font-weight:700}
+.btn{display:inline-block;background:var(--gold);color:#141414;text-decoration:none;padding:12px 28px;border-radius:10px}
+main{padding:24px 16px}
 </style>
 </head>
 <body>
 <main>
 <img src="icon-512.png" alt="LIVORIA">
-<p>LIVORIA 営業ポータルを開いています…</p>
-<p><a id="go" href="https://script.google.com/macros/s/AKfycbwm8cLd9JSWsOTcVQuKrfcs2UlN2KlEsj6dRCS4ev-BZAXvdg33Gs-cg1S_WLyF_iM-/exec">開かないときはこちら</a></p>
+<div id="add">
+<h1 style="font-size:20px;margin:18px 0 6px">LIVORIA 営業ポータル</h1>
+<p>ホーム画面に追加すると、このロゴのアイコンで開けます。</p>
+<ol style="text-align:left;display:inline-block;margin:14px 0 0;padding-left:1.4em;line-height:2;font-size:15px">
+<li>画面下の共有ボタン（□に↑）を押す</li>
+<li>「ホーム画面に追加」を押す</li>
+<li>名前が「LIVORIA」なのを確認して「追加」</li>
+</ol>
+<p style="margin-top:20px"><a id="go" class="btn" href="https://script.google.com/macros/s/AKfycbwm8cLd9JSWsOTcVQuKrfcs2UlN2KlEsj6dRCS4ev-BZAXvdg33Gs-cg1S_WLyF_iM-/exec">ポータルを開く</a></p>
+</div>
+<p id="open" hidden>LIVORIA 営業ポータルを開いています…</p>
 </main>
 <script>
-var u=document.getElementById('go').href;var q=location.search;if(q)u+=q;setTimeout(function(){location.replace(u)},300);
+var a=document.getElementById('go');var u=a.href+(location.search||'');a.href=u;
+var sa=window.navigator.standalone===true||(window.matchMedia&&matchMedia('(display-mode: standalone)').matches);
+if(sa){document.getElementById('add').hidden=true;document.getElementById('open').hidden=false;location.replace(u)}
 </script>
 </body>
 </html>
