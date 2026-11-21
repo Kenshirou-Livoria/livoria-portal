@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LIVORIA</title>
+<meta name="apple-mobile-web-app-title" content="LIVORIA">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#ffffff">
+<style>
+:root{--bg:#ffffff;--ink:#141414;--muted:#5E5D57;--gold:#DCB607}
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--bg);color:var(--ink);font-family:"Hiragino Mincho ProN","Yu Mincho",serif;text-align:center}
+img{width:120px;height:120px}
+p{color:var(--muted);font-size:14px;margin:16px 0 0}
+a{color:var(--ink);font-weight:700}
+</style>
+</head>
+<body>
+<main>
+<img src="icon-512.png" alt="LIVORIA">
+<p>LIVORIA 営業ポータルを開いています…</p>
+<p><a id="go" href="https://script.google.com/macros/s/AKfycbwm8cLd9JSWsOTcVQuKrfcs2UlN2KlEsj6dRCS4ev-BZAXvdg33Gs-cg1S_WLyF_iM-/exec">開かないときはこちら</a></p>
+</main>
+<script>
+var u=document.getElementById('go').href;var q=location.search;if(q)u+=q;setTimeout(function(){location.replace(u)},300);
+</script>
+</body>
+</html>
